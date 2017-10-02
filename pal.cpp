@@ -4,13 +4,15 @@
 #include <cctype> 
 using namespace std;
  int main() 
-{
+{   int v;
     string str;
     string tmp;
-    cin >> str;
-    str.erase(remove_if(str.begin(), str.end(), (int(*)(int))ispunct), str.end());
-    str.erase(remove_if(str.begin(), str.end(), (int(*)(int))isspace), str.end());
-    transform(str.begin(), str.end(), str.begin(), (int(*)(int))tolower);
+    getline(cin, str);
+    v = str.length();
+    for (int i = 0; i <v ; i++){
+      if(ispunct(str[i]))str.erase(i,1);
+      if(str[i]==' ')str.erase(i,1);
+    if (isupper(str[i])) str[i] = tolower(str[i]);}
     tmp = str;
     reverse(str.begin(), str.end());
     if (str == tmp)
